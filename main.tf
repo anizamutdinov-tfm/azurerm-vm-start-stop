@@ -37,7 +37,7 @@ resource "azurerm_logic_app_action_http" "lapp_start_action" {
 resource "azurerm_role_assignment" "lapp_start_role" {
   principal_id         = azurerm_logic_app_workflow.lapp_start.identity[0].principal_id
   scope                = data.azurerm_virtual_machine.vm.id
-  role_definition_name = "Contributor"
+  role_definition_name = "Virtual Machine Contributor"
 }
 
 resource "azurerm_logic_app_workflow" "lapp_stop" {
@@ -68,5 +68,5 @@ resource "azurerm_logic_app_action_http" "lapp_stop_action" {
 resource "azurerm_role_assignment" "lapp_stop_role" {
   principal_id         = azurerm_logic_app_workflow.lapp_stop.identity[0].principal_id
   scope                = data.azurerm_virtual_machine.vm.id
-  role_definition_name = "Contributor"
+  role_definition_name = "Virtual Machine Contributor"
 }
